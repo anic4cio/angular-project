@@ -1,6 +1,6 @@
-# AngularProject
+# Vaptchat
 
-Projeto de chat usando Angular CLI.
+VaptChat is a desktop chat. I'm using Angular 11.
 
 ## Development server
 
