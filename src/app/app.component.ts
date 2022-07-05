@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'vaptchat';
+  // title = 'vaptchat';
+  conversation;
+
+  onConversationSelected(conversation: any) {
+    this.conversation = conversation;
+    
+  }
 }

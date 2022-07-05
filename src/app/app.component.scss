@@ -6,10 +6,28 @@
     left: 0%;
     background-color: #121215;
     display: flex;
-
+    
     app-sidebar {
         flex-basis: 30%;
         display: block;
+        height: 100%;
+    }
+    
+    #chat {
+        flex-grow: 1;
+        
+        #chat-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            
+            p {
+                padding: 13px;                   
+                border-radius: 17px;
+                background-color: #202026;
+            }
+        }
     }
 }
  
