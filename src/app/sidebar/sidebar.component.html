@@ -8,13 +8,13 @@
 
             <div class="actions-container">
                 <div class="icon">
-                    <img src="../../assets/images/menu-icon.png" alt="menu-icon">
+                    <img src="../../assets/images/menu-icon.jpg" alt="menu-icon">
                 </div>
             </div>
         </div>
 
         <div id="search-box">
-            <img width="17" src="../../assets/images/search-icon.jpg" alt="search-icon">
+            <img src="../../assets/images/search-icon.jpg" alt="search-icon">
             <input type="text" placeholder="Search or start new chat">
         </div>
     </div>
@@ -22,7 +22,12 @@
     <div id="sidebar-content">
         <!-- <div id="no-conversations">All chats are archived</div> -->
 
-        <div class="conversation" *ngFor="let conversation of conversations">
+        <div 
+            class="conversation" 
+            *ngFor="let conversation of conversations"
+            (click)="conversationClicked.emit(conversation)"
+        >
+
             <div class="picture">
                 <img width="17" src="../../assets/images/potrait.jpg" alt="profile-pic">
             </div>
