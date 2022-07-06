@@ -15,7 +15,7 @@
 
         <div id="search-box">
             <img src="../../assets/images/search-icon.jpg" alt="search-icon">
-            <input type="text" placeholder="Search or start new chat">
+            <input [(ngModel)]="searchText" type="text" placeholder="Search or start new chat">
         </div>
     </div>
 
@@ -24,7 +24,7 @@
 
         <div 
             class="conversation" 
-            *ngFor="let conversation of conversations"
+            *ngFor="let conversation of !searchText ? conversations : filteredConversations"
             (click)="conversationClicked.emit(conversation)"
         >
 
