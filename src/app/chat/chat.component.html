@@ -1,12 +1,28 @@
 <div id="container">
     <div id="header">
-
+        <div class="avatar-section">
+            <div class="picture">
+                <img src="../../assets/images/potrait.jpg" alt="avatar">
+            </div>
+            <div class="name-section">Anic4cio</div>
+        </div>
+        <div class="action-buttons">
+            <img width="30" src="../../assets/images/search-icon.jpg" alt="search-in-chat">
+            <img width="20" src="../../assets/images/menu-icon.jpg" alt="chat=menu">
+        </div>
     </div>
-    <div id="body"></div>
+    <div id="body">
+        <div class="message" [ngClass]="{me: message.me}" *ngFor="let message of conversation.messages">
+            <div class="message-content">
+                {{ message.body }} 
+                <div class="time">{{ message.time }}</div>
+            </div>
+        </div>
+    </div>
     <div id="footer">
         <div id="smiley-icon"></div>
         <div id="text-area">
-            <textarea></textarea>
+            <textarea (keyup.enter)="submitMessage($event)"></textarea>
         </div>
         <div id="send-icon"><img src="https://icon-library.com/images/02d4886f9c.svg.svg" alt="send-icon"></div>
     </div>

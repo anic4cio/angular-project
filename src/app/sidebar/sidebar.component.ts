@@ -8,22 +8,59 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class SidebarComponent implements OnInit {
     @Output() conversationClicked: EventEmitter<any> = new EventEmitter();  
     
+    searchText;
+
     conversations = [
-        {name: 'James', time: '14:35 PM', latestMessage: 'Good morging!'},
-        {name: 'Maria', time: '11:33 AM', latestMessage: 'How are you?'},
-        {name: 'Andrew', time: '09:25 AM', latestMessage: 'Pretty good'},
-        {name: 'Sonia', time: '09:15 AM', latestMessage: 'We can`t do it'},
-        {name: 'Hermes', time: '08:57 AM', latestMessage: 'Nice to meet you'},
-        {name: 'Pedro', time: '08:30 AM', latestMessage: 'Yes, we have to go early'},
-        {name: 'Ana', time: '08:25 AM', latestMessage: 'I have been doing this'},
-        {name: 'Ramires', time: '07:35 AM', latestMessage: 'Definitively never'},
-        {name: 'Thiago', time: '07:29 AM', latestMessage: 'Ok, have fun'},
-        {name: 'Bruna', time: '07:10 AM', latestMessage: 'Good night, lovely'},
-        {name: 'Gabriela', time: '06:35 AM', latestMessage: 'Ok, bye'},
-        {name: 'Gabriela', time: '06:35 AM', latestMessage: 'Ok, bye'},
+        {
+            name: 'James', time: '14:35 PM', latestMessage: 'Good morging!', 
+            messages: [
+                {id: 1, body: 'How are you?', time: '06:36', me: false},
+                {id: 2, body: 'Hello mite!', time: '08:13', me: true},
+                {id: 3, body: 'I am fine, thanks!', time: '03:45', me: false},
+                {id: 4, body: 'Glad to hear that', time: '07:40', me: true},
+            ]},
+        {
+            name: 'Maria', time: '11:33 AM', latestMessage: 'How are you?',
+            messages: [
+                {id: 1, body: 'How are you?', time: '06:36', me: false},
+                {id: 2, body: 'Hello everyone!', time: '08:13', me: true},
+                {id: 3, body: 'Pretty good, thank you very much', time: '03:45', me: false},
+                {id: 4, body: 'Glad to hear that', time: '07:40', me: true},
+            ]},
+        {
+            name: 'Sonia', time: '09:15 AM', latestMessage: 'We can`t do it',
+            messages: [
+                {id: 1, body: 'Are you fine?', time: '06:36', me: false},
+                {id: 2, body: 'Hello dear', time: '08:13', me: true},
+                {id: 3, body: 'I am ok', time: '03:45', me: false},
+                {id: 4, body: 'Glad to hear that', time: '07:40', me: true},
+            ]},
+        {
+            name: 'Pedro', time: '08:30 AM', latestMessage: 'Yes, we have to go early',
+            messages: [
+                {id: 1, body: 'Whats up', time: '06:36', me: false},
+                {id: 2, body: 'Hello my love', time: '08:13', me: true},
+                {id: 3, body: 'Alls up', time: '03:45', me: false},
+                {id: 4, body: 'Awesome', time: '07:40', me: true},
+            ]},
+        {
+            name: 'Gabriela', time: '06:35 AM', latestMessage: 'Ok, bye',
+            messages: [
+                {id: 1, body: 'How good you are?', time: '06:36', me: false},
+                {id: 2, body: 'Hi friend', time: '08:13', me: true},
+                {id: 3, body: 'Very good', time: '03:45', me: false},
+                {id: 4, body: 'Glad to hear that', time: '07:40', me: true},
+            ]},
     ]
-  
-    constructor() { }
+
+    get filteredConversations() {
+        return this.conversations.filter((conversation) => {
+            return conversation.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
+                conversation.latestMessage.toLowerCase().includes(this.searchText.toLowerCase())
+        });
+    }
+
+    constructor() { } 
 
     ngOnInit(): void {
     }
