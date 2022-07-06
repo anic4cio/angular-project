@@ -5,19 +5,84 @@
     flex-direction: column;
 
     #header {
-        flex-basis: 67px;
+        min-height: 67px;
         background-color: #171719;
-        border-left: 1px solid #000;       
+        border-left: 1px solid #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .avatar-section {
+            display: flex;
+
+            .picture {
+                min-width: 40px;
+                max-width: 40px;
+                margin: 0 10px;
+                img {
+                    max-width: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            .name-section {
+                flex-grow: 1;
+                padding-top: 4px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .action-buttons {
+            min-width: 50px;
+            display: flex;
+
+            img {
+                margin-right: 20px;
+                cursor: pointer;
+            }
+        }
+
     }
 
     #body {
+        // background-color: #202026;
         border-left: 1px solid #000;
-        background-color: #202026;
         flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        flex-direction: column-reverse;
+        padding: 20px 50px;
+        overflow-y: scroll;
+        
+        .message {
+            margin-top: 10px;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            
+            .message-content {
+                background-color: #121215;
+                border-radius: 4px;
+                padding: 10px;
+
+                .time {
+                    text-align: right;
+                    font-size: 12px;
+                    margin-top: 5px;
+                }
+            }
+            &.me {
+                align-items: flex-end;
+                .message-content {
+                    background-color: #303036;
+                }
+            }
+        }
     }
 
     #footer {
-        flex-basis: 100px;
+        min-height: 100px;
         background-color: #171719;
         display: flex;
 

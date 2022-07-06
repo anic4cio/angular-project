@@ -1,12 +1,20 @@
 #chatContainer {
+    // background-color: #121215;
     position: fixed;
     top: 0%;
     bottom: 0%;
     right: 0%;
     left: 0%;
-    background-color: #121215;
     display: flex;
-    
+    background-image: url("../assets/images/background.jpg");
+
+    .hero-image {
+        height: 500px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
     app-sidebar {
         flex-basis: 30%;
         display: block;
